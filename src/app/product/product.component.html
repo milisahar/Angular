@@ -1,0 +1,22 @@
+<div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="">type the price</span>
+    </div>
+    <input type="number" class="form-control" [(ngModel)]="priceMax">
+  </div>
+<div class="row">
+<div class="card" style="width: 18rem;" *ngFor="let p of productList let i=index">
+    <div *ngIf="p.price<priceMax || priceMax==null">
+    <img class="card-img-top" src="https://kastelo.com.tn/uploads/articles/1672312923.JPG" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">Product title: {{p.title}}</h5>
+        <p class="card-text">Price: {{p.price}}</p>
+        <p class="card-text">Quantity: {{p.quantity}}</p>
+        <p class="card-text">Likes: {{p.like}}</p>
+        
+        <button  class="btn btn-outline-success" (click)="increments(i)">Like </button>
+        <button  class="btn btn-outline-danger" (click)="decrements(i)" [disabled]="p.quantity==0">Buy </button>
+    </div>
+</div>
+</div>
+</div>
